@@ -1,0 +1,59 @@
+{
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "test": "jest --coverage",
+    "export": "next build && next export && serve out -l 3001"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!variables/.*)"
+    ],
+    "collectCoverageFrom": [
+      "src/__tests__/**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.11",
+    "graphql": "^15.5.0",
+    "next": "^10.0.3",
+    "npm-check-updates": "^10.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "recoil": "^0.1.2",
+    "styled-components": "^5.2.1",
+    "zod": "^3.0.0-alpha.33"
+  },
+  "devDependencies": {
+    "@jest/globals": "^26.6.2",
+    "@types/node": "^14.14.10",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.4",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.1.2"
+  },
+  "license": "MIT"
+}
